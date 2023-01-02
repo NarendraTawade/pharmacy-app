@@ -1,0 +1,17 @@
+<div class="container">
+    <nav class="side-nav">
+        <ul class="nav-menu">
+            <a [routerLink] ="['/admin/product']" routerLinkActive ="active-link" [routerLinkActiveOptions]="{exact:
+          true}">
+                <li class="nav-item"><i class="fas fa-tachometer-alt"></i><span class="menu-text">Product Board</span></li>
+            </a>
+            <a routerLink="admin/buyer-board" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                true}">
+                <li class="nav-item"><i class="fas fa-user"></i><span class="menu-text">Customers Board</span></li>
+            </a>
+            <!-- <a routerLink="/invoice" routerLinkActive="active-link">
+                <li class="nav-item"><i class="fas fa-file-alt"></i><span class="menu-text">Invoice</span></li>
+            </a> -->
+        </ul>
+    </nav>
+</div>      

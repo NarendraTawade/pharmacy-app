@@ -1,0 +1,115 @@
+<div class="container-fluid bg-warning">
+    <div class="row text-center">
+        <div class="col-md-9">
+            <h3 class="py-2">Buyer Board</h3>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary m-4 p-3" routerLink="/invoice/create-invoice">Create Invoice</button>
+
+            <button class="btn btn-danger mt-2" (click)="logout()">Log Out</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>New Retailer Form</h3>
+            <form [formGroup]="addBuyerForm">
+                <div>
+                    <div>Retailer Name :</div>
+                    <div>
+                        <input type="text" formControlName="retailerName" placeholder="Retailer Name" />
+                    </div>
+                </div>
+                <div>
+                    <div>Shop Name :</div>
+                    <div>
+                        <input type="text" formControlName="shopName" placeholder="Shop Name" />
+                    </div>
+                </div>
+                <div>
+                    <div>Mobile Number :</div>
+                    <div>
+                        <input type="text" formControlName="mobile" placeholder="Mobile Number" />
+                    </div>
+                </div>
+                <div>
+                    <div>GSTIN :</div>
+                    <div>
+                        <input type="text" formControlName="gstIN" placeholder="GSTIN Number" />
+                    </div>
+                </div>
+                <div formArrayName="address">
+                    
+                    <div>
+                        <button class="btn btn-success my-2" (click)="addNewAddress()">Add New Address</button>
+                    </div>
+                    <div class="mb-4" *ngFor="let control of address.controls; let i= index" [formGroupName]="i">
+                        <h5>Address Details :</h5>
+                        <div>
+                            <input type="text" formControlName="shopNumber" placeholder="Shop Number" />
+                        </div>
+                        <div>
+                            <input type="text" formControlName="street" placeholder="Street" />
+                        </div>
+                        <div>
+                            <input type="text" formControlName="landmark" placeholder="Landmark" />
+                        </div>
+                        <div>
+                            <input type="text" formControlName="city" placeholder="City" />
+                        </div>
+                        <div>
+                            <input type="text" formControlName="district" placeholder="District" />
+                        </div>
+                        <div>
+                            <input type="text" formControlName="state" placeholder="State" />
+                        </div>
+                        <div>
+                            <input type="text" formControlName="pin" placeholder="PIN Number" />
+                        </div>
+                        <div>
+                            <button class="btn btn-danger" (click)="removeAddressArray(i)">
+                                Remove Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary" (click)="saveRetailer()">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-8">
+
+            <!-- <button class="btn btn-danger p-3" routerLink="/home"></button> -->
+
+            <div class="table-responsive pt-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sr. No.</th>
+                            <th scope="col">Shop Name</th>
+                            <th scope="col">GST Number</th>
+                            <th scope="col">Retailer Owner</th>
+                            <th scope="col">Mobile Number</th>
+                            <!-- <th scope="col">City</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let retailer of retailersList; let i = index">
+                            <th scope="row">{{retailer.id}}</th>
+                            <td>{{retailer.shopName}}</td>
+                            <td>{{retailer.gstIN}}</td>
+                            <td>{{retailer.retailerName}}</td>
+                            <td>{{retailer.mobile}}</td>
+                            <!-- <td>{{retailer.address[i]?.city}}</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

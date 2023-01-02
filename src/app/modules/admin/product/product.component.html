@@ -1,0 +1,49 @@
+<div class="container-fluid bg-warning">
+    <div class="row text-center">
+        <div class="col-md-9">
+            <h3 class="py-2">Product Board</h3>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary m-4 p-3" routerLink="/invoice/create-invoice">Create Invoice</button>
+
+            <button class="btn btn-danger mt-2" (click)="logout()">Log Out</button>
+        </div>
+        
+    </div>
+</div>
+
+<div>
+    <app-add-product-modal [length]="productsQuantity"></app-add-product-modal>
+</div>
+
+<div class="table-responsive px-5 pt-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sr. No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">MRP</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">MfgDate</th>
+                <th scope="col">ExpDate</th>
+                <th scope="col">Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productsData">
+                <th scope="row">{{product.id}}</th>
+                <td>{{product.name}}</td>
+                <td>{{product.mrp}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.manufacturer}}</td>
+                <td>{{product.mfgDate}}</td>
+                <td>{{product.expDate}}</td>
+                <td>{{product.rate}}</td>
+                <!-- <button class="me-2" type="button" >Edit</button> -->
+                <button type="button" (click)="deleteProductById(product.id)">Delete</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

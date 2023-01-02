@@ -1,0 +1,110 @@
+<!-- Button trigger modal -->
+<button type="button" class="add-product-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Product
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="addProductForm">
+        <div class="modal-body">
+          <div>
+            <div>Product Name :</div>
+            <div>
+              <input type="text" formControlName="productName" placeholder="product Name" />
+            </div>
+            <div class="error"
+              *ngIf="(isAddProductFormSubmitted || addProductForm.controls['productName'].touched) && addProductForm.controls['productName']?.errors !== null ">
+              <span *ngIf="addProductForm.controls['productName']['errors']!['required']">Please Enter product
+                name</span>
+              <span *ngIf="addProductForm.controls['productName']['errors']!['maxlength']">Maximum 20 characters
+                allowed</span>
+              <span *ngIf="addProductForm.controls['productName']['errors']!['pattern']">Enter the valid name</span>
+            </div>
+          </div>
+          <div>
+            <div>MRP :</div>
+            <div>
+              <input type="text" formControlName="mrp" placeholder="MRP" />
+            </div>
+            <div class="error"
+              *ngIf="(isAddProductFormSubmitted || addProductForm.controls['mrp']['touched']) && addProductForm.controls['mrp']?.errors !== null">
+              <span *ngIf="addProductForm.controls['mrp']['errors']!['required']">Please Enter the mrp</span>
+              <span *ngIf="addProductForm.controls['mrp']['errors']!['pattern']">Please Enter the correct mrp </span>
+            </div>
+          </div>
+          <div>
+            <div>Quantity :</div>
+            <div>
+              <input type="text" formControlName="quantity" placeholder="quantity" />
+            </div>
+            <div class="error"
+              *ngIf="(isAddProductFormSubmitted || addProductForm.controls['quantity'].touched) && addProductForm.controls['quantity']?.errors !== null">
+              <span *ngIf="addProductForm.controls['quantity']['errors']!['required']">please enter the quantity</span>
+              <span *ngIf="addProductForm.controls['quantity']['errors']!['pattern']">please enter the correct quantity
+              </span>
+            </div>
+          </div>
+          <div>
+            <div>Manufacturer :</div>
+            <div>
+              <input type="text" formControlName="manufacturer" placeholder="Manufacturer Name" />
+            </div>
+            <div class="error"
+              *ngIf="(isAddProductFormSubmitted || addProductForm.controls['manufacturer'].touched) && addProductForm.controls['manufacturer']?.errors !== null">
+              <span *ngIf="addProductForm.controls['manufacturer']['errors']!['required']">Please Enter the
+                manufacturer</span>
+            </div>
+          </div>
+          <div>
+            <div>Manufacturing Date :</div>
+            <div>
+              <input type="date" formControlName="mfgDate" placeholder="Manufacturing Date" />
+            </div>
+            <div class="error"
+              *ngIf="(isAddProductFormSubmitted || addProductForm.controls['mfgDate'].touched) && addProductForm.controls['mfgDate']?.errors !== null">
+              <span *ngIf="addProductForm.controls['mfgDate']['errors']!['required']">please enter manufacturing
+                date</span>
+            </div>
+          </div>
+          <div>
+            <div>Expiry Date :</div>
+            <div>
+              <input type="Date" formControlName="expDate" placeholder="Expiry Date" />
+            </div>
+            <div class="error"
+              *ngIf="(isAddProductFormSubmitted || addProductForm.controls['expDate'].touched) && addProductForm.controls['expDate']?.errors !== null">
+              <span *ngIf="addProductForm.controls['expDate']['errors']!['required']">Please Enter the expiry
+                date</span>
+            </div>
+          </div>
+          <div>
+            <div>Rate :</div>
+            <div>
+              <input type="text" formControlName="rate" placeholder="Rate" />
+            </div>
+            <!-- <span *ngIf="addProductForm.get('rate')?.hasError('pattern') && addProductForm.get('rate')?.touched">Enter only numbers
+            </span> -->
+            <div class="error"
+              *ngIf="(isAddProductFormSubmitted || addProductForm.controls['rate'].touched) && addProductForm.controls['rate']?.errors != null">
+              <span *ngIf="addProductForm.controls['rate']['errors']!['required']">Please Enter the rate</span>
+              <span *ngIf="addProductForm.get('rate')?.hasError('pattern')">please enter the correct price
+              </span>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addProduct()">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
