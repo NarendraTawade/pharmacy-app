@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   onLogin(userName : any, pass : any){
     this._sharedService.checkLoginDetails(userName, pass);
     
-    if(userName == "Narendra" && pass == '020527'){
+    if(userName == "" && pass == ''){
       this._router.navigateByUrl('/admin/product');
     }
     else{
