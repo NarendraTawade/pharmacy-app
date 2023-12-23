@@ -25,7 +25,7 @@ export class AdminGuardGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if ((localStorage.getItem('userName')== 'Narendra') && (localStorage.getItem('pass') == '020527')) {
+    if ((localStorage.getItem('userName')== 'User') && (localStorage.getItem('pass') == 'User@123')) {
       return true;
     } else {
       this._router.navigate(['/home']);
