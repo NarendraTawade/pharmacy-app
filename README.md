@@ -28,3 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 You can view the work using https://narendratawade.github.io/pharmacy-app/
 
+userName == "User" && pass == 'User@123'
+
