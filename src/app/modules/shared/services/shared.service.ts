@@ -23,7 +23,7 @@ export class SharedService {
   }
 
   checkLoginDetails(userName : any, pass : any ){
-    if(userName == 'Narendra' && pass == '020527'){
+    if(userName == 'User' && pass == 'User@123'){
       localStorage.setItem('userName', 'Narendra');
       localStorage.setItem('pass', '020527');
       return true;
